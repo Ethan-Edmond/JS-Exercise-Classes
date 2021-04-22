@@ -260,9 +260,38 @@ let natalie = new Student({
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
+class ProjectManager extends Instructor {
+  constructor(argObj){
+    super(argObj);
+    this.gradClassName = argObj.gradClassName;
+    this.favInstructor = argObj.favInstructor;
+  }
+  standUp(slackChnl){
+    return `${this.name} announces to ${slackChnl}, @channel standy times!`;
+  }
+  debugsCode(student,subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+}
+
+const someManager = new ProjectManager({
+  name: "Manager McManagerson",
+  age: 35,
+  location: "In the trenches",
+  specialty: "Management",
+  favLanguage: "T.G.I Fridays gift cards",
+  catchPhrase: "I love these jalapeno poppers!",
+  gradClassName: "Managerial class of '96",
+  favInstructor: brit
+});
+
+console.log(someManager);
+console.log(someManager.demo("Synergy"));
+console.log(someManager.speak());
+console.log(someManager.grade(me,"Hustle"));
+console.log(someManager.standUp("ManagerChannel"));
+console.log(someManager.debugsCode(me, "Equity"));
+
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
