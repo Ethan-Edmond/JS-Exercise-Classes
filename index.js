@@ -174,6 +174,11 @@ const me = new Lambdasian({
    grade(student,subject){
      return `${student.name} receives a perfect score on ${subject}`;
    }
+   assignGrade(student){
+     student.grade += (Math.random() * 20) - 10;
+     // limiting it to between 0 and 100
+     student.grade = Math.max(0,Math.min(100, student.grade));
+   }
  }
 
 const brit = new Instructor({
@@ -211,6 +216,7 @@ const brit = new Instructor({
      this.previousBackground = argObj.previousBackground;
      this.className = argObj.className;
      this.favSubjects = argObj.favSubjects;
+     this.grade = 100;
    }
    listSubjects(){
      let tempString = "";
@@ -230,13 +236,24 @@ const brit = new Instructor({
    sprintChallenge(subject){
      return `${this.name} has begun sprint challenge on ${subject}`;
    }
+   graduate(){
+     if (this.grade > 70){
+       return `${this.name} has graduated! Good luck!`;
+     } else {
+       while (this.grade < 70){
+         brit.assignGrade(this);
+         console.log(this.grade);
+       }
+       return `${this.name} has graduated after some trials and tribulations! Good luck!`;
+     }
+   }
  }
 
-let natalie = new Student({
+const natalie = new Student({
   name: "Natalie",
   age: 25,
   location: 'Wherever Natalie lives',
-  previousBackground: "Probably something cool",
+  previousBackground: "Probably something cool", // everybody's cool but me, boo hoo
   className: "Whatever Natalies class is",
   favSubjects: ["HTML", "CSS", "JS"]
 });
@@ -246,6 +263,15 @@ let natalie = new Student({
 // console.log(natalie.speak());
 // console.log(natalie.PRAssignment("JS"));
 // console.log(natalie.sprintChallenge("CSS"));
+
+// console.log(natalie.graduate());
+// natalie.grade = 50;
+// console.log(natalie.graduate());
+
+// for (let i = 0; i < 50; i++){
+//   brit.assignGrade(natalie);
+//   console.log(natalie.grade);
+// }
 
   /*
     TASK 6
