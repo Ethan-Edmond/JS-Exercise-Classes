@@ -107,13 +107,13 @@ class Airplane {
    }
  }
 
-const myCar = new Car("A flipping koenigsegg with fancy rims", 30);
-console.log(myCar);
-myCar.fill(12);
-console.log(myCar);
-console.log(myCar.drive(30));
-console.log(myCar);
-console.log(myCar.drive(500));
+// const myCar = new Car("A flipping koenigsegg with fancy rims", 30);
+// console.log(myCar);
+// myCar.fill(12);
+// console.log(myCar);
+// console.log(myCar.drive(30));
+// console.log(myCar);
+// console.log(myCar.drive(500));
 
   /*
     TASK 3
@@ -128,9 +128,25 @@ console.log(myCar.drive(500));
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
-  }
-  
+   constructor(argObj){
+     this.name = argObj.name;
+     this.age = argObj.age;
+     this.location = argObj.location;
+   }
+   speak(){
+     return `Hello my name is ${this.name}, I am from ${this.location}`;
+   }
+ }
+
+const me = new Lambdasian({
+  name: "Ethan",
+  age: 28,
+  location: "Colorado Springs"
+});
+
+console.log(me);
+console.log(me.speak());
+
   /*
     TASK 4
       - Write an Instructor class extending Lambdasian.
