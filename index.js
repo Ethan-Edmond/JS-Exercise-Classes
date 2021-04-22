@@ -285,12 +285,12 @@ const someManager = new ProjectManager({
   favInstructor: brit
 });
 
-console.log(someManager);
-console.log(someManager.demo("Synergy"));
-console.log(someManager.speak());
-console.log(someManager.grade(me,"Hustle"));
-console.log(someManager.standUp("ManagerChannel"));
-console.log(someManager.debugsCode(me, "Equity"));
+// console.log(someManager);
+// console.log(someManager.demo("Synergy"));
+// console.log(someManager.speak());
+// console.log(someManager.grade(me,"Hustle"));
+// console.log(someManager.standUp("ManagerChannel"));
+// console.log(someManager.debugsCode(me, "Equity"));
 
   /*
     STRETCH PROBLEM (no tests!)
