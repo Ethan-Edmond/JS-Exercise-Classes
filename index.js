@@ -205,10 +205,48 @@ const brit = new Instructor({
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian {
+   constructor(argObj){
+     super(argObj);
+     this.previousBackground = argObj.previousBackground;
+     this.className = argObj.className;
+     this.favSubjects = argObj.favSubjects;
+   }
+   listSubjects(){
+     let tempString = "";
+     for (let i = 0; i < this.favSubjects.length; i++){
+       tempString = tempString + this.favSubjects[i];
+       if (i === this.favSubjects.length - 1){
+         tempString = tempString + "!";
+       } else {
+         tempString = tempString + ", ";
+       }
+     }
+     return `Loving ${tempString}`;
+   }
+   PRAssignment(subject){
+     return `${this.name} has submitted a PR for ${subject}`;
+   }
+   sprintChallenge(subject){
+     return `${this.name} has begun sprint challenge on ${subject}`;
+   }
  }
-  
+
+let natalie = new Student({
+  name: "Natalie",
+  age: 25,
+  location: 'Wherever Natalie lives',
+  previousBackground: "Probably something cool",
+  className: "Whatever Natalies class is",
+  favSubjects: ["HTML", "CSS", "JS"]
+});
+
+// console.log(natalie);
+// console.log(natalie.listSubjects());
+// console.log(natalie.speak());
+// console.log(natalie.PRAssignment("JS"));
+// console.log(natalie.sprintChallenge("CSS"));
+
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
